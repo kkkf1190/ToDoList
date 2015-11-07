@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <div class="container">
+            <h3 class="col-lg-10 text-center">To do list</h3>
+            <button onclick="openAdd()" class="btn btn-success col-lg-2">add list</button>
+            <table class="table table-striped">
+                <thead>
+                </thead>
+                <tbody>
+                {% for item in listItems %}
+                    <tr>
+                        <th class="col-lg-10" id="item{{ forloop.counter }}"> {{ forloop.counter }}. {{ item.list_item }} </th>
+                        <th class="col-lg-10 hide" id="Item{{ forloop.counter }}"> {{ item.list_id }}. {{ item.list_item }} </th>
+                        <th class="col-lg-1">
+                            <button onclick="openEditor({{ forloop.counter }})" class="btn btn-info">
+                                <sapn class="glyphicon glyphicon-wrench"></sapn>Edit</button>
+                        </th>
+                        <th class="col-lg-1">
+                            <button onclick="deleteItem({{ forloop.counter }})"class="btn btn-danger" id="{{ item.list_id }}">
+                                <sapn class="glyphicon glyphicon-remove"></sapn>Delete</button>
+                        </th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="editdiv container hide">
+            <form action="">
+                <button class="close">X</button>
+                <legend>Edit list item</legend>
+                    <div class="form-group hide">
+                        <label for="">Id</label>
+                        <label id="itemid"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="">content</label>
+                        <input type="text" class="form-control" value="你猜啊" id="editInput">
+                        <button class="btn btn-success right" onclick="edit()">
+                            <span class="glyphicon glyphicon-pencil"></span>confirm</button>
+                    </div>
+            </form>
+        </div>
+        <div class="adddiv container hide">
+            <form action="">
+                <button class="close">X</button>
+                <legend>New list item</legend>
+
+                    <div class="form-group">
+                        <label for="">content</label>
+                        <input type="text" class="form-control" value="" id="addvalue">
+                        <button class="btn btn-success right" onclick="add()">
+                            <span class="glyphicon glyphicon-pencil"></span>confirm</button>
+                    </div>
+            </form>
+        </div>
+    {% endblock %}
+
+
+</body>
+</html>

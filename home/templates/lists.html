@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for list in lists %}
+
+                <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="thumbnail">
+                    <img src="/static/img/loadingbackground.jpg" alt="">
+                    <div class="caption">
+                        <h3>{{ list.list_name }}</h3>
+                        <p>
+                            <a class="btn btn-success" href="./{{ list.list_id }}/">
+                                进入
+                            </a>
+                            <button class="btn btn-danger" onclick="deleteItem({{ list.list_id }})">
+                                删除
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+            <div class="col-sm-6 col-md-4 col-lg-4">
+                <div class="thumbnail">
+                    <img src="/static/img/loadingbackground.jpg" alt="">
+                    <div class="caption">
+                        <h3>Add list</h3>
+                        <p>
+                            <button class="btn btn-success" onclick="openAdd()">
+                                Add List
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="adddiv container hide">
+            <form action="">
+                <button class="close">X</button>
+                <legend>New list item</legend>
+
+                    <div class="form-group">
+                        <label for="">content</label>
+                        <input type="text" class="form-control" value="" id="addvalue">
+                        <button class="btn btn-success right" onclick="add()">
+                            <span class="glyphicon glyphicon-pencil"></span>confirm</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

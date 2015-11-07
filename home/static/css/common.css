@@ -1,0 +1,14 @@
+.hide{
+    display: none;
+}
+.on{
+    display: block;
+}
+.back{
+    background: rgba(0, 0, 0, 0) linear-gradient(45deg, #020031 0px, #6d3353 100%) repeat scroll 0 0;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2) inset, 0 -3px 7px rgba(0, 0, 0, 0.2) inset;
+    color: #fff;
+    padding: 40px 0;
+    position: relative;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
